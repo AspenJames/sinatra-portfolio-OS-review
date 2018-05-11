@@ -1,0 +1,3 @@
+class OperatingSystemController < ApplicationController
+
+end
