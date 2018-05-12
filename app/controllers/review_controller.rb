@@ -10,7 +10,7 @@ class ReviewController < ApplicationController
   post '/reviews' do
     review = Review.create(params["review"])
     review.operating_system = OperatingSystem.create(params["os"]) unless params["os"]["name"].empty?
-    redirect :"/reviews#{review.id}"
+    redirect :"/reviews/#{review.id}"
   end
 
 end
