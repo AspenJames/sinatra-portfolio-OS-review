@@ -1,1 +1,29 @@
 <!-- reviews/new -->
+<h1>Submit a New Review:</h1>
+
+<form action="/reviews" method="post">
+  <p>Choose an Operating System:</p>
+    <% @os.each do |sys| %>
+      <input type="radio" name="review[operating_system_id]" value="<%=sys.id%>">sys.name</input>
+    <% end %>
+  <p>Or, enter a new Operating System:</p>
+    <label for="os_name">Name:</label>
+    <input type="text" id="os_name" name="os[name]">
+
+    <label for="os_type">Type: (Windows, Mac, BSD, Linux, etc...)</label>
+    <input type="text" id="os_type" name="os[type]">
+
+    <label for="os_ss">Link to Screenshot (optional):</label>
+    <input type="text" id="os_ss" name="os[screenshot]">
+
+    <input type="hidden" name="review[user_id]" value="@user.id">
+
+  <textarea name="review[content]" rows="8" cols="80">
+    Fill in your review here!
+  </textarea>
+
+
+    <input type="submit" value="Submit">
+</form>
+
+<h3><a href="/reviews">Click Here</a> to discard all changes and return to all reviews.</h3>
