@@ -1,1 +1,26 @@
 <!-- signup -->
+<h1>Create an OS Review Account:</h1>
+<% if flash.has?(:message) %>
+  <h3><%=flash[:message]%></h3>
+  <br>
+<% end %>
+
+
+<form action="/signup" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+
+  <label for="username">Username:</label>
+  <input type="text" name="username" id="username">
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" id="email">
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password">
+
+  <label for="pwrd_verify">Verify your Password:</label>
+  <input type="password" name="pwrd_verify" id="pwrd_verify">
+
+  <input type="submit" value="Sign Up">
+</form>
