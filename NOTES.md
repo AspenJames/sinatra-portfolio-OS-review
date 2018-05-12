@@ -73,3 +73,4 @@
 ## Stretch Goals
 
 * Links to OS homepage, scrape detail on install instructions?
+* Include a couple featured OS reviews on the root index view for logged-in users. 
