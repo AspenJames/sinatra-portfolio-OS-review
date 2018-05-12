@@ -36,7 +36,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-
+    if params.any?{|p| p.empty?}
+      flash[:message] = "All fields are required!"
+      redirect :'/signup'
+    elsif params["password"] != params["pwrd_verify"]
+      flash[:message] = "Your password fields did not match, please try again."
+      redirect :'/signup'
+    else
+      @user = User.create(name: params["name"], username: params["username"], email: params["email"], password: params["password"])
+      session[:user_id] = @user.id
+      redirect :'/'
+    end
   end
 
   get '/logout' do
