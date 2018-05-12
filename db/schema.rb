@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_05_12_014952) do
 
   create_table "operating_systems", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "platform"
     t.string "screenshot"
   end
 
