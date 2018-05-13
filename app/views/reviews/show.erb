@@ -1,1 +1,12 @@
 <!-- reviews/show -->
+<h1>Review for <%=@review.operating_system.name%></h1>
+
+  <h2>Submitted by <%=@review.user.name%></h2>
+
+  <p><%=@review.content%></p>
+  <% if !@review.operating_system.screenshot.empty? %>
+    <h3>Screenshot:</h3>
+      <img src="<%=@review.operating_system.screenshot%>" alt="Screenshot of <%=@review.operating_system.name%>">
+  <% end %>
+
+  <h3><a href="/reviews/<%=@review.id%>/edit">Edit This Review</a></h3>
