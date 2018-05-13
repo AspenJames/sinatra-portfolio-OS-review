@@ -8,5 +8,10 @@
   <!-- NAVBAR to go here  -->
   <body>
     <%= yield %>
+    <% if Helper.logged_in?(session) %>
+      <form action="/logout" method="get">
+        <input type="submit" value="Log Out">
+      </form>
+    <% end %>
   </body>
 </html>
