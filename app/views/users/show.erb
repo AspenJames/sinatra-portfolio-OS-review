@@ -1,1 +1,8 @@
 <!-- users/show -->
+<h1><%=@user.name%>'s Reviews:</h1>
+
+  <ul>
+    <% @user.reviews.each do |review| %>
+      <li><a href="/reviews/<%=review.id%>"><%=review.operating_system.name%></a></li>
+    <% end %>
+  </ul>
