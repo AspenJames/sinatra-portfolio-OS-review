@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <title>OS Review</title>
   </head>
+  <nav>
   <!-- NAVBAR to go here  -->
+  <a href="/reviews">Reviews</a> <a href="/users">Operating Systems</a> <a href="/users">Users</a>
+  </nav>
   <body>
+    <h1>OS REVIEW</h1>
     <%= yield %>
     <% if Helper.logged_in?(session) %>
       <form action="/logout" method="get">
