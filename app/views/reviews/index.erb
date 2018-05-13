@@ -1,1 +1,12 @@
 <!-- reviews/index  -->
+<h1>Welcome, <%=@user.name%></h1>
+
+<h2>All reviews:</h2>
+
+<h3>Click on a review below to view details</h3>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li><a href="/reviews/<%=review.id%>"><%=review.user.name%>: <%=review.operating_system.name%></a></li>
+  <% end %>
+</ul>
