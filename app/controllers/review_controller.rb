@@ -45,4 +45,18 @@ class ReviewController < ApplicationController
     redirect :"/reviews/#{@review.id}"
   end
 
+  get '/reviews/:id/delete' do
+    @review = Review.find_by(id: params[:id])
+
+    erb :'/reviews/delete'
+  end
+
+  post '/reviews/:id/delete' do
+    @review = Review.find_by(id: params[:id])
+    @review.destroy
+    flash[:message] = "Successfully deleted your review"
+
+    redirect :'/reviews'
+  end
+
 end
