@@ -15,7 +15,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    erb :login
+    if Helper.logged_in?(session)
+      redirect :'/reviews'
+    else
+      erb :login
+    end
   end
 
   post '/login' do
@@ -32,7 +36,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-    erb :signup
+    if Helper.logged_in?(session)
+      redirect :'/reviews'
+    else
+      erb :signup
+    end
   end
 
   post '/signup' do
@@ -51,6 +59,7 @@ class ApplicationController < Sinatra::Base
 
   get '/logout' do
     session.clear
+    
     redirect :'/'
   end
 
