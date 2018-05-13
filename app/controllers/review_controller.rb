@@ -1,16 +1,23 @@
 class ReviewController < ApplicationController
 
   get '/reviews' do
-    @reviews = Review.all
-    @user = Helper.current_user(session)
-    erb :'/reviews/index'
+    if Helper.logged_in?(session)
+      @reviews = Review.all
+      @user = Helper.current_user(session)
+      erb :'/reviews/index'
+    else
+      redirect :'/'
+    end
   end
 
   get '/reviews/new' do
-    @os = OperatingSystem.all
-    @user = Helper.current_user(session)
-
-    erb :'/reviews/new'
+    if Helper.logged_in?(session)
+      @os = OperatingSystem.all
+      @user = Helper.current_user(session)
+      erb :'/reviews/new'
+    else
+      redirect :'/'
+    end
   end
 
   post '/reviews' do
@@ -22,14 +29,25 @@ class ReviewController < ApplicationController
   end
 
   get '/reviews/:id' do
-    @review = Review.find_by(id: params[:id])
-    erb :'/reviews/show'
+    if Helper.logged_in?(session)
+      @review = Review.find_by(id: params[:id])
+      erb :'/reviews/show'
+    else
+      redirect :'/'
+    end
   end
 
   get '/reviews/:id/edit' do
     @review = Review.find_by(id: params[:id])
-    @OS = OperatingSystem.all
-    erb :"/reviews/edit"
+    if Helper.logged_in?(session) && Helper.current_user(session) == @review.user
+      @OS = OperatingSystem.all
+      erb :"/reviews/edit"
+    elsif Helper.logged_in?(session)
+      flash[:message] = "You cannot edit another user's review!"
+      redirect :"/reviews/#{@review.id}"
+    else
+      redirect :'/'
+    end
   end
 
   patch '/reviews/:id' do
@@ -46,8 +64,13 @@ class ReviewController < ApplicationController
 
   get '/reviews/:id/delete' do
     @review = Review.find_by(id: params[:id])
-
-    erb :'/reviews/delete'
+    if Helper.logged_in?(session) && Helper.current_user(session) == @review.user
+      erb :'/reviews/delete'
+    elsif Helper.logged_in?(session)
+      flash[:message] = "You cannot delete another user's review!"
+      redirect :"/reviews/#{@review.id}"
+    else
+      redirect :'/'
   end
 
   post '/reviews/:id/delete' do
