@@ -1,11 +1,10 @@
 class ReviewController < ApplicationController
 
-  # get '/' do
-  #   @reviews = Review.all
-  #   @user = Helper.current_user(session)
-  #   binding.pry
-  #   erb :'/reviews/index'
-  # end
+  get '/reviews' do
+    @reviews = Review.all
+    @user = Helper.current_user(session)
+    erb :'/reviews/index'
+  end
 
   get '/reviews/new' do
     @os = OperatingSystem.all
