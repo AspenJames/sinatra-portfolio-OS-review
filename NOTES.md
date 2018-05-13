@@ -2,7 +2,7 @@
 
 ## Models
 
-* Users:
+* Users: *Done*
   - Name
   - Username
   - Email
@@ -11,14 +11,14 @@
   - `has_many :operating_systems, through: :reviews`
   - Slugifiable
 
-* Reviews:
+* Reviews: *Done*
   - Content
   - user_id
   - operating_system_id
   - `belongs_to :user`
   - `belongs_to :operating_system`
 
-* Operating Systems:
+* Operating Systems: *Done*
   - Name
   - Type (Windows, Mac, Linux, BSD, etc.)
   - Desktop Screenshot (optional)
@@ -29,16 +29,16 @@
 ## Controllers
 
 * Application Controller:
-  - Index (logged out):
+  - Index (logged out): *Basic func done*
     + Welcome screen, info summary
     + Login/signup links
-  - Index (logged in):
+  - Index (logged in): *Basic func done*
     + Welcome screen
     + Create new review link
     + Log out link
-  - Signup/login/logout routes
+  - Signup/login/logout routes *Basic func done*
 
-* User Controller:
+* User Controller: *Need all*
   - Index (logged in only):
     + List of Users (links)
   - Show (slug)
@@ -46,13 +46,13 @@
   - New only by signup
 
 * Review Controller:
-  - Index (logged in only):
+  - Index (logged in only): *Need style + auth*
     + List of Reviews (links)
-  - Show (id)
+  - Show (id) *Need style, nav*
     + Individual review info, links to User + OS
-  - New/edit/delete
+  - New/edit/delete *Need delete*
 
-* Operating System Controller:
+* Operating System Controller: *Need all*
   - Index (logged in only):
     + List of OSs (links)
   - Show (slug):
@@ -73,4 +73,4 @@
 ## Stretch Goals
 
 * Links to OS homepage, scrape detail on install instructions?
-* Include a couple featured OS reviews on the root index view for logged-in users. 
+* Include a couple featured OS reviews on the root index view for logged-in users.
