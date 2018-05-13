@@ -24,7 +24,6 @@ class ReviewController < ApplicationController
     review = Review.create(params["review"])
     review.build_operating_system(params["os"]) unless params["os"]["name"].empty?
     review.save
-    binding.pry
     redirect :"/reviews/#{review.id}"
   end
 
@@ -71,6 +70,7 @@ class ReviewController < ApplicationController
       redirect :"/reviews/#{@review.id}"
     else
       redirect :'/'
+    end
   end
 
   post '/reviews/:id/delete' do
