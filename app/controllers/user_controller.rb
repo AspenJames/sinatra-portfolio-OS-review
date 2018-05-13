@@ -1,13 +1,21 @@
 class UserController < Sinatra::Base
 
   get '/users' do
-    @users = User.all
-    erb :'/users/index'
+    if Helper.logged_in?(session)
+      @users = User.all
+      erb :'/users/index'
+    else
+      redirect :'/'
+    end
   end
 
   get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'/users/show'
+    if Helper.logged_in?(session)
+      @user = User.find_by_slug(params[:slug])
+      erb :'/users/show'
+    else
+      redirect :'/'
+    end
   end
 
 end
