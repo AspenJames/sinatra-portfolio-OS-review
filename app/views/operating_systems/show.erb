@@ -1,1 +1,7 @@
 <!-- os/show -->
+<h1><%=@os.name%></h1>
+  <ul>
+    <% @os.reviews.each do |rev| %>
+      <li><a href="/reviews/<%=rev.id%>"><%=rev.user.name%>'s review</a></li>
+    <% end %>
+  </ul>
