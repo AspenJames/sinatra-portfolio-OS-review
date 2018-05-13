@@ -3,7 +3,7 @@ class OperatingSystemController < ApplicationController
   get :'/operating_systems' do
     if Helper.logged_in?(session)
       @os = OperatingSystem.all
-      erb :"operating_systems/index"
+      erb :"/operating_systems/index"
     else
       redirect :'/'
     end
