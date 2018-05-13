@@ -1,5 +1,12 @@
 class ReviewController < ApplicationController
 
+  # get '/' do
+  #   @reviews = Review.all
+  #   @user = Helper.current_user(session)
+  #   binding.pry
+  #   erb :'/reviews/index'
+  # end
+
   get '/reviews/new' do
     @os = OperatingSystem.all
     @user = Helper.current_user(session)
@@ -9,8 +16,33 @@ class ReviewController < ApplicationController
 
   post '/reviews' do
     review = Review.create(params["review"])
-    review.operating_system = OperatingSystem.create(params["os"]) unless params["os"]["name"].empty?
+    review.build_operating_system(params["os"]) unless params["os"]["name"].empty?
+    review.save
+    binding.pry
     redirect :"/reviews/#{review.id}"
+  end
+
+  get '/reviews/:id' do
+    @review = Review.find_by(id: params[:id])
+    erb :'/reviews/show'
+  end
+
+  get '/reviews/:id/edit' do
+    @review = Review.find_by(id: params[:id])
+    @OS = OperatingSystem.all
+    erb :"/reviews/edit"
+  end
+
+  patch '/reviews/:id' do
+    @review = Review.find_by(id: params[:id])
+
+    @review.update(params["review"])
+    @review.build_operating_system(params["os"]) unless params["os"]["name"].empty?
+    if @review.save
+      flash[:message] = "Successfully edited your review!"
+    end
+
+    redirect :"/reviews/#{@review.id}"
   end
 
 end
