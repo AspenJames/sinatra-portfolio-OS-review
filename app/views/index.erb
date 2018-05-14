@@ -18,17 +18,14 @@
 
 <% else %>
   <!-- LOGGED OUT VIEW -->
-  <h1>Welcome to OS Review!</h1>
+  <div class="row">
+    <h1>Welcome to OS Review!</h1>
+  </div>
   <br>
   <!-- navbar to provide navigation  -->
   <div class="row">
-    <div class="col-sm-3">
       <a href="/login"><button type="button">Log In</button></a>
-    </div>
-    <br>
-    <div class="col-sm-3">
-      <a href="/signup"><button type="button">Sign Up</button></a>
-    </div>
+      <a class="button-left" href="/signup"><button type="button">Sign Up</button></a>
   </div>
 
 <% end %>
