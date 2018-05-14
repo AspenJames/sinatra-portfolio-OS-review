@@ -1,7 +1,28 @@
 /*/////// Global ///////*/
 
+body {
+  background-color: #dae6cf;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+}
+nav {
+  margin-bottom: 20px;
+}
+
 .larger {
   font-size: 1.5em;
 }
 
+
+
 /*/////// Links ///////*/
+
+
+
+
+/*/////// Errors ///////*/
+
+p.error {
+  color: red;
+  font-size: 1.5em;
+  text-align: center;
+}
