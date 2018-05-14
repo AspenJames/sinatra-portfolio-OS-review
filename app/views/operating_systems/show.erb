@@ -1,6 +1,6 @@
 <!-- os/show -->
 <div class="row">
-  <h1><%=@os.name%></h1>
+  <h1><%= @os.platform %>: <%=@os.name%></h1>
 </div>
   <ul>
     <% @os.reviews.each do |rev| %>
