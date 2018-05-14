@@ -27,3 +27,11 @@ This project will be an interactive website where users can log in to review ope
   - Operating System: has many Reviews and has many Users through Reviews.
 * Each model will have its own controller, as well as a general Applicaiton Controller.
 * Content will be specific to and dependent upon a User being properly logged in.
+
+## Install instructions
+
+Fork and clone this repo, execute `bundle install`, and launch with either `rackup` or `shotgun` to get a working model on your local machine. This website is not hosted on the web.
+
+## License and Contributing
+
+Please reference the LICENSE and CONTRIBUTING files for information on the license and contributing guide. 
