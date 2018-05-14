@@ -1,7 +1,11 @@
 <!-- os/index -->
-<h1>Operating Systems</h1>
-  <ul>
-    <% @os.each do |opsys| %>
-      <li><a href="/operating_systems/<%=opsys.slug%>"><%=opsys.name%></a></li>
-    <% end %>
-  </ul>
+<div class="row">
+  <h1>Operating Systems</h1>
+</div>
+    <ul>
+      <% @os.each do |opsys| %>
+        <div class="row">
+          <li class="larger"><a href="/operating_systems/<%=opsys.slug%>"><%=opsys.name%></a></li>
+        </div>
+      <% end %>
+    </ul>
