@@ -1,26 +1,44 @@
 <!-- signup -->
-<h1>Create an OS Review Account:</h1>
+<div class="row">
+  <h1>Create an OS Review Account:</h1>
+</div>
 <% if flash.has?(:message) %>
-  <h3><%=flash[:message]%></h3>
+  <p class="error"><%=flash[:message]%></p>
   <br>
 <% end %>
 
-
-<form action="/signup" method="post">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username">
-
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email">
-
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
-
-  <label for="pwrd_verify">Verify your Password:</label>
-  <input type="password" name="pwrd_verify" id="pwrd_verify">
-
-  <input type="submit" value="Sign Up">
-</form>
+<div class="row">
+  <form action="/signup" method="post">
+    <div class="row">
+      <div class="col-xs-4">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="col-xs-4">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+      </div>
+      <div class="col-xs-4">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-6">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+      </div>
+      <div class="col-xs-6">
+        <label for="pwrd_verify">Verify your Password:</label>
+        <input type="password" name="pwrd_verify" id="pwrd_verify">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="submit" value="Sign Up">
+      </div>
+    </div>
+  </form>
+</div>
