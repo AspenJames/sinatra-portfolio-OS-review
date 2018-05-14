@@ -1,12 +1,18 @@
 <!-- index -->
 <% if Helper.logged_in?(session) %>
   <!-- LOGGED IN VIEW -->
-  <h1>Logged in as <%=Helper.current_user(session).name%></h1>
+  <div class="row">
+    <h1>Logged in as <%=Helper.current_user(session).name%></h1>
+  </div>
+
   <br>
+  <div class="row">
     <p class="larger">Welcome to your #1 review sites for operating systems!</p>
+  </div>
   <!-- STRETCH GOAL: featured reviews -->
-  <h3>Post a <a href="/reviews/new">New Review</a></h3>
-  <br>
+  <div class="row">
+    <h3>Post a <a href="/reviews/new">New Review</a></h3>
+  </div>
 
 
 
