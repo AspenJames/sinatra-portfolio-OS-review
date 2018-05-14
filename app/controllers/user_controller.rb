@@ -5,7 +5,7 @@ class UserController < Sinatra::Base
       @users = User.all
       erb :'/users/index'
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
@@ -14,7 +14,7 @@ class UserController < Sinatra::Base
       @user = User.find_by_slug(params[:slug])
       erb :'/users/show'
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 

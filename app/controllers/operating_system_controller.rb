@@ -5,7 +5,7 @@ class OperatingSystemController < ApplicationController
       @os = OperatingSystem.all
       erb :"/operating_systems/index"
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
@@ -14,7 +14,7 @@ class OperatingSystemController < ApplicationController
       @os = OperatingSystem.find_by(id: params[:id])
       erb :'/operating_systems/show'
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 

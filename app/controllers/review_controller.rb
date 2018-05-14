@@ -6,7 +6,7 @@ class ReviewController < ApplicationController
       @user = Helper.current_user(session)
       erb :'/reviews/index'
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
@@ -16,7 +16,7 @@ class ReviewController < ApplicationController
       @user = Helper.current_user(session)
       erb :'/reviews/new'
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
@@ -32,7 +32,7 @@ class ReviewController < ApplicationController
       @review = Review.find_by(id: params[:id])
       erb :'/reviews/show'
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
@@ -45,7 +45,7 @@ class ReviewController < ApplicationController
       flash[:message] = "You cannot edit another user's review!"
       redirect :"/reviews/#{@review.id}"
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
@@ -69,7 +69,7 @@ class ReviewController < ApplicationController
       flash[:message] = "You cannot delete another user's review!"
       redirect :"/reviews/#{@review.id}"
     else
-      redirect :'/'
+      redirect :'/login'
     end
   end
 
