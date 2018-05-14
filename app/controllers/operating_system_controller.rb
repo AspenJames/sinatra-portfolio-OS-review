@@ -9,9 +9,9 @@ class OperatingSystemController < ApplicationController
     end
   end
 
-  get '/operating_systems/:id' do
+  get '/operating_systems/:slug' do
     if Helper.logged_in?(session)
-      @os = OperatingSystem.find_by(id: params[:id])
+      @os = OperatingSystem.find_by_slug(params[:slug])
       erb :'/operating_systems/show'
     else
       redirect :'/login'
