@@ -23,12 +23,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    if @user = User.find_by(username: params["username"])
-      if @user.authenticate(params["password"])
-        session[:user_id] = @user.id
-        flash[:message] = "Successfully logged in!"
-        redirect :'/'
-      end
+    @user = User.find_by(username: params["username"])
+    if @user && @user.authenticate(params["password"])
+      session[:user_id] = @user.id
+      flash[:message] = "Successfully logged in!"
+      redirect :'/'
     else
       flash[:message] = "Incorrect username and/or password."
       redirect :'/login'
