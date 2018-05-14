@@ -1,5 +1,8 @@
 <!-- reviews/show -->
 <div class="row">
+  <% if flash.has?(:message) %>
+    <p class="error"><%=flash[:message]%></p>
+  <% end %>
   <h1>Review for <%=@review.operating_system.platform%>: <%=@review.operating_system.name%></h1>
 </div>
 <br>
