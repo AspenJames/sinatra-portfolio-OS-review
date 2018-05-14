@@ -1,4 +1,7 @@
 <!-- login -->
+<% if flash.has?(:message) %>
+  <p class="error"><%=flash[:message]%><p>
+<% end %>
 <div class="row">
   <h1>Log In Below:</h1>
 </div>
