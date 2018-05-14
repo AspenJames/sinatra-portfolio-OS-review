@@ -1,7 +1,11 @@
 <!-- os/show -->
-<h1><%=@os.name%></h1>
+<div class="row">
+  <h1><%=@os.name%></h1>
+</div>
   <ul>
     <% @os.reviews.each do |rev| %>
-      <li><a href="/reviews/<%=rev.id%>"><%=rev.user.name%>'s review</a></li>
+      <div class="row">
+        <li class="larger"><a href="/reviews/<%=rev.id%>"><%=rev.user.name%>'s review</a></li>
+      </div>
     <% end %>
   </ul>
