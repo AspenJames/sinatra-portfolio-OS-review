@@ -1,13 +1,23 @@
-<h1>Deleting Review for <%=@review.operating_system.name%></h1>
-
-<h2>Review:</h2>
-  <p><%=@review.content%></p>
-
-<h3>Confirm Deletion?</h3>
+<!-- reviews/delete -->
+<div class="row">
+  <h1>Deleting Review for <%=@review.operating_system.name%></h1>
+</div>
+<br>
+<div class="row">
+  <h2>Review:</h2>
+</div>
+  <p class="larger review"><%=@review.content%></p>
+<div class="row">
+  <h3>Confirm Deletion?</h3>
+</div>
+<div class="row">
   <form action="/reviews/<%=@review.id%>" method="post">
     <input type="submit" value="Delete">
   </form>
-  <br>
+</div>
+<br>
+<div class="row">
   <form action="/reviews" method="get">
     <input type="submit" value="Don't Delete">
   </form>
+</div>
