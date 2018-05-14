@@ -2,26 +2,30 @@
 <div class="row">
   <h1>Review for <%=@review.operating_system.platform%>: <%=@review.operating_system.name%></h1>
 </div>
+<br>
 
 <div class="row">
   <h2>Submitted by <%=@review.user.name%></h2>
 </div>
+<br>
 
 <div class="row">
   <p class="larger"><%=@review.content%></p>
 </div>
+<br>
   <% if !@review.operating_system.screenshot.empty? %>
     <div class="row">
       <h3>Screenshot:</h3>
     </div>
       <img src="<%=@review.operating_system.screenshot%>" alt="Screenshot of <%=@review.operating_system.name%>">
+    <br>
   <% end %>
 
 <div class="row">
-  <div class="col-sm-2">
+  <!-- <div class="col-sm-2"> -->
     <a href="/reviews/<%=@review.id%>/edit"><button type="button">Edit</button></a>
-  </div>
-  <div class="col-sm-2">
-    <a href="/reviews/<%=@review.id%>/delete"><button type="button">Delete</button></a>
-  </div>
+  <!-- </div> -->
+  <!-- <div class="col-sm-2"> -->
+    <a class="button-left" href="/reviews/<%=@review.id%>/delete"><button type="button">Delete</button></a>
+  <!-- </div> -->
 </div>
