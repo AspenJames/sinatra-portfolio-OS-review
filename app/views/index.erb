@@ -1,12 +1,14 @@
 <!-- index -->
 <% if Helper.logged_in?(session) %>
   <!-- LOGGED IN VIEW -->
-  <h1>Welcome <%=Helper.current_user(session).name%></h1>
-  <!-- navbar to provide navigation -->
-  <!-- Link to new review here -->
+  <h1>Logged in as <%=Helper.current_user(session).name%></h1>
+  <br>
+    <p class="larger">Welcome to your #1 review sites for operating systems!</p>
   <!-- STRETCH GOAL: featured reviews -->
-  <h2>Post a <a href="/reviews/new">New Review</a></h2>
-  <h2><a href="/logout">Log Out</a></h2>
+  <h3>Post a <a href="/reviews/new">New Review</a></h3>
+  <br>
+
+
 
 <% else %>
   <!-- LOGGED OUT VIEW -->
