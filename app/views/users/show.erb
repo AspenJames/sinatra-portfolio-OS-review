@@ -2,6 +2,9 @@
 <div class="row">
   <h1><%=@user.name%>'s Reviews:</h1>
 </div>
+<% if @user.reviews.empty? %>
+  <p class="larger">No reviews here yet!</p>
+<% else %>
 
   <ul>
     <% @user.reviews.each do |review| %>
@@ -10,3 +13,4 @@
       </div>
     <% end %>
   </ul>
+<% end %>
