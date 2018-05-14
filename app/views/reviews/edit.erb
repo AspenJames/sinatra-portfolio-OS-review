@@ -1,27 +1,43 @@
 <!-- reviews/edit -->
-<h1>Edit Review:</h1>
+<div class="row">
+  <h1>Edit Review:</h1>
+</div>
+<br>
 
 <form action="/reviews/<%=@review.id%>" method="post">
   <input type="hidden" name="_method" value="PATCH">
-
-  <h2>Choose an operating system:</h2>
+  <div class="row">
+    <h3>Choose an operating system:</h3>
+  </div>
   <% @OS.each do |opsys| %>
     <input type="radio" name="review[operating_system_id]" value="<%=opsys.id%>" <%="checked if @review.operating_system = opsys"%>><%=opsys.name%></input>
   <% end %>
-
-  <h3>Or, create a new operating system:</h3>
-    <label for="os_name">Name:</label>
-    <input type="text" id="os_name" name="os[name]">
-
-    <label for="os_type">Type: (Windows, Mac, BSD, Linux, etc...)</label>
-    <input type="text" id="os_type" name="os[platform]">
-
-    <label for="os_ss">Link to Screenshot (optional):</label>
-    <input type="text" id="os_ss" name="os[screenshot]">
-
+  <br><br>
+  <div class="row">
+    <h3>Or, enter a new operating system:</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="os_name">Name:</label>
+      <input type="text" id="os_name" name="os[name]">
+    </div>
+    <div class="col-md-4">
+      <label for="os_type">Type:</label>
+      <input type="text" id="os_type" name="os[platform]">
+    </div>
+    <div class="col-md-4">
+      <label for="os_ss">Link to Screenshot (optional):</label>
+      <input type="text" id="os_ss" name="os[screenshot]">
+    </div>
+  </div>
+  <br>
+  <div class="row">
     <textarea name="review[content]" rows="8" cols="80">
       Fill in your review here!
     </textarea>
-
+  </div>
+  <br>
+  <div class="row">
     <input type="submit" value="Save Changes">
+  </div>
 </form>
