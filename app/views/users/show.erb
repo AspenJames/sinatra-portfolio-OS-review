@@ -1,8 +1,12 @@
 <!-- users/show -->
-<h1><%=@user.name%>'s Reviews:</h1>
+<div class="row">
+  <h1><%=@user.name%>'s Reviews:</h1>
+</div>
 
   <ul>
     <% @user.reviews.each do |review| %>
-      <li><a href="/reviews/<%=review.id%>"><%=review.operating_system.name%></a></li>
+      <div class="row">
+        <li class="larger"><a href="/reviews/<%=review.id%>"><%=review.operating_system.name%></a></li>
+      </div>
     <% end %>
   </ul>
