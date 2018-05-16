@@ -10,7 +10,7 @@
     <h3>Choose an operating system:</h3>
   </div>
   <% @OS.each do |opsys| %>
-    <input type="radio" name="review[operating_system_id]" value="<%=opsys.id%>" <%="checked if @review.operating_system == opsys"%>><%=opsys.name%></input>
+    <input type="radio" name="review[operating_system_id]" value="<%=opsys.id%>" <%="checked if @review.operating_system.id == opsys.id"%>><%=opsys.name%></input>
   <% end %>
   <br><br>
   <div class="row">
@@ -19,21 +19,21 @@
   <div class="row">
     <div class="col-md-4">
 
-      <input type="text" id="os_name" name="os[name]" value="<%=@review.operating_system.name%>" >
+      <input type="text" id="os_name" name="os[name]" placeholder="Name" >
     </div>
     <div class="col-md-4">
 
-      <input type="text" id="os_type" name="os[platform]" value="<%=@review.operating_system.platform%>">
+      <input type="text" id="os_type" name="os[platform]" placeholder="Type">
     </div>
     <div class="col-md-4">
 
-      <input type="text" id="os_ss" name="os[screenshot]" value="<%=@review.operating_system.screenshot%>">
+      <input type="text" id="os_ss" name="os[screenshot]" placeholder="Screenshot (optional)">
     </div>
   </div>
   <br>
   <div class="row">
     <textarea name="review[content]" rows="8" cols="80">
-      <%=@review.content%>
+<%=@review.content%>
     </textarea>
   </div>
   <br>
