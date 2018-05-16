@@ -1,4 +1,7 @@
 <!-- reviews/index  -->
+<% if flash.has?(:message) %>
+  <p class="error"><%= flash[:message] %></p>
+<% end %>
 <div class="row">
   <h1>Welcome, <%=@user.name%></h1>
 </div>
