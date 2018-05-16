@@ -10,7 +10,7 @@
     <h3>Choose an operating system:</h3>
   </div>
   <% @OS.each do |opsys| %>
-    <input type="radio" name="review[operating_system_id]" value="<%=opsys.id%>" <%="checked if @review.operating_system.id == opsys.id"%>><%=opsys.name%></input>
+    <input type="radio" name="review[operating_system_id]" value="<%=opsys.id%>" <%="checked" if @review.operating_system.id == opsys.id%>><%=opsys.name%></input>
   <% end %>
   <br><br>
   <div class="row">
