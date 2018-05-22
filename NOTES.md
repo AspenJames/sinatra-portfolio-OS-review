@@ -74,3 +74,4 @@
 
 * Links to OS homepage, scrape detail on install instructions?
 * Include a couple featured OS reviews on the root index view for logged-in users.
+* Allow screenshot upload instead of link to image URL
