@@ -3,16 +3,13 @@
   <!-- LOGGED IN VIEW -->
   <div class="jumbotron">
     <h1>Logged in as <%=Helper.current_user(session).name%></h1>
-  <!-- </div> -->
-
   <br>
-  <!-- <div class="row"> -->
     <p class="larger">Welcome to your #1 review site for operating systems!</p>
   </div>
   <!-- STRETCH GOAL: featured reviews -->
-  <div class="row">
-    <h3>Post a <a href="/reviews/new">New Review</a></h3>
-  </div>
+
+  <h3>Post a <a href="/reviews/new">New Review</a></h3>
+
 
 
 
@@ -27,9 +24,7 @@
   </div>
   <br>
   <!-- navbar to provide navigation  -->
-  <div class="row">
       <a href="/login"><button type="button">Log In</button></a>
       <a class="button-left" href="/signup"><button type="button">Sign Up</button></a>
-  </div>
 
 <% end %>
