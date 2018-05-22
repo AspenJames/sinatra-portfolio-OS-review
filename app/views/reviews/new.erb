@@ -6,13 +6,11 @@
 
 <form action="/reviews" class="form" method="post">
   <div class="form-row">
-      <h3>Choose an Operating System:</h3>
-    <div class="form-col-md-12">
-      <% @os.each do |sys| %>
-        <input type="radio" name="review[operating_system_id]" value="<%=sys.id%>"><%=sys.name%></input>
-      <% end %>
-    </div>
+    <h3>Choose an Operating System:</h3>
   </div>
+    <% @os.each do |sys| %>
+      <input type="radio" class="form-check-inline" name="review[operating_system_id]" value="<%=sys.id%>"><%=sys.name%></input>
+    <% end %>
     <br>
   <div class="form-row">
     <h3>Or, enter a new Operating System:</h3>
