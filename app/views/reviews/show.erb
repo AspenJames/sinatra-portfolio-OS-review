@@ -2,33 +2,33 @@
 <% if flash.has?(:message) %>
   <p class="error"><%=flash[:message]%></p>
 <% end %>
-<div class="row">
+<div class="jumbotron">
   <h1>Review for <%=@review.operating_system.platform%>: <%=@review.operating_system.name%></h1>
-</div>
+<!-- </div> -->
 <br>
 
-<div class="row">
+<!-- <div class="row"> -->
   <h2>Submitted by <%=@review.user.name%></h2>
 </div>
 <br>
 
-<div class="row">
+<!-- <div class="row"> -->
   <p class="larger review"><%=@review.content%></p>
-</div>
+<!-- </div> -->
 <br>
   <% if !@review.operating_system.screenshot.empty? %>
-    <div class="row">
+    <!-- <div class="row"> -->
       <h3>Screenshot:</h3>
-    </div>
+    <!-- </div> -->
       <img id="screenshot_img" src="<%=@review.operating_system.screenshot%>" alt="Screenshot of <%=@review.operating_system.name%>">
     <br>
   <% end %>
 
 <% if Helper.current_user(session) == @review.user %>
 
-  <div class="row">
+  <!-- <div class="row"> -->
       <a href="/reviews/<%=@review.id%>/edit"><button type="button">Edit</button></a>
 
       <a class="button-left" href="/reviews/<%=@review.id%>/delete"><button type="button">Delete</button></a>
-  </div>
+  <!-- </div> -->
 <% end %>
