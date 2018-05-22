@@ -51,14 +51,18 @@ class ReviewController < ApplicationController
 
   patch '/reviews/:id' do
     @review = Review.find_by(id: params[:id])
+    if Helper.current_user(session) == @review.user
+      @review.update(params["review"])
+      @review.build_operating_system(params["os"]) unless params["os"]["name"].empty?
+      if @review.save
+        flash[:message] = "Successfully edited your review!"
+      end
 
-    @review.update(params["review"])
-    @review.build_operating_system(params["os"]) unless params["os"]["name"].empty?
-    if @review.save
-      flash[:message] = "Successfully edited your review!"
+      redirect :"/reviews/#{@review.id}"
+    else
+      flash[:message] = "You cannot edit another user's review!"
+      redirect :"/reviews/#{@review.id}"
     end
-
-    redirect :"/reviews/#{@review.id}"
   end
 
   get '/reviews/:id/delete' do
@@ -74,11 +78,16 @@ class ReviewController < ApplicationController
   end
 
   post '/reviews/:id/delete' do
-    @review = Review.find_by(id: params[:id])
-    @review.destroy
-    flash[:message] = "Successfully deleted your review"
+    if Helper.current_user(session) == @user.id
+      @review = Review.find_by(id: params[:id])
+      @review.destroy
+      flash[:message] = "Successfully deleted your review"
 
-    redirect :'/reviews'
+      redirect :'/reviews'
+    else
+      flash[:message] = "You cannot delete another user's review!"
+      redirect :"/reviews/#{@review.id}"
+    end
   end
 
 end
