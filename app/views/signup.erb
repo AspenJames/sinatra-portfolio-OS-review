@@ -1,5 +1,5 @@
 <!-- signup -->
-<div class="row">
+<div class="jumbotron">
   <h1>Create an OS Review Account:</h1>
 </div>
 <% if flash.has?(:message) %>
@@ -7,38 +7,32 @@
   <br>
 <% end %>
 
-<div class="row">
-  <form action="/signup" method="post">
-    <div class="row">
-      <div class="col-xs-4">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+
+  <form action="/signup" class="form" method="post">
+    <div class="form-row">
+      <div class="form-col-md-4">
+        <input type="text" id="name" name="name" placeholder="Name">
       </div>
-      <div class="col-xs-4">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+      <div class="form-col-md-4">
+        <input type="text" name="username" id="username" placeholder="Username">
       </div>
-      <div class="col-xs-4">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
+      <div class="form-col-md-4">
+        <input type="email" name="email" id="email" placeholder="Email">
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="col-xs-6">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
+    <div class="form-row">
+      <div class="form-col-md-6">
+        <input type="password" name="password" id="password" placeholder="Password">
       </div>
-      <div class="col-xs-6">
-        <label for="pwrd_verify">Verify your Password:</label>
-        <input type="password" name="pwrd_verify" id="pwrd_verify">
+      <div class="form-col-md-6">
+        <input type="password" name="pwrd_verify" id="pwrd_verify" placeholder="Verify Password">
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="col-sm-12">
-        <input type="submit" value="Sign Up">
+    <div class="form-row">
+      <div class="form-goup">
+        <input type="submit" class="btn" value="Sign Up">
       </div>
     </div>
   </form>
-</div>
