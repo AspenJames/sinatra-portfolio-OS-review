@@ -1,12 +1,12 @@
 <!-- index -->
 <% if Helper.logged_in?(session) %>
   <!-- LOGGED IN VIEW -->
-  <div class="row">
+  <div class="jumbotron">
     <h1>Logged in as <%=Helper.current_user(session).name%></h1>
-  </div>
+  <!-- </div> -->
 
   <br>
-  <div class="row">
+  <!-- <div class="row"> -->
     <p class="larger">Welcome to your #1 review site for operating systems!</p>
   </div>
   <!-- STRETCH GOAL: featured reviews -->
@@ -21,8 +21,9 @@
   <% if flash.has?(:message) %>
     <p class="error"><%=flash[:message]%><p>
   <% end %>
-  <div class="row">
+  <div class="jumbotron">
     <h1>Welcome to OS Review!</h1>
+    <p class="larger">Your #1 review site for operating systems! Please log in or signup below.</p>
   </div>
   <br>
   <!-- navbar to provide navigation  -->
