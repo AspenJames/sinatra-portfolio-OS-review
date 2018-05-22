@@ -1,47 +1,45 @@
 <!-- reviews/new -->
-<div class="row">
+<div class="jumbotron">
   <h1>Submit a New Review!</h1>
 </div>
 <br>
 
-<form action="/reviews" method="post">
-  <div class="row">
+<form action="/reviews" class="form" method="post">
+  <div class="form-row">
       <h3>Choose an Operating System:</h3>
-    <div class="col-md-12">
+    <div class="form-col-md-12">
       <% @os.each do |sys| %>
         <input type="radio" name="review[operating_system_id]" value="<%=sys.id%>"><%=sys.name%></input>
       <% end %>
     </div>
   </div>
     <br>
-  <div class="row">
+  <div class="form-row">
     <h3>Or, enter a new Operating System:</h3>
   </div>
-    <div class="row">
-      <div class="col-md-4">
+    <div class="form-row">
+      <div class="form-col-md-4">
         <input type="text" id="os_name" name="os[name]" placeholder="Name">
       </div>
-      <div class="col-md-4">
+      <div class="form-col-md-4">
         <input type="text" id="os_type" name="os[platform]" placeholder="Type">
       </div>
-      <div class="col-md-4">
+      <div class="form-col-md-4">
         <input type="text" id="os_ss" name="os[screenshot]" placeholder="Screenshot (optional)">
       </div>
       <input type="hidden" name="review[user_id]" value="<%=@user.id%>">
     </div>
     <br>
-  <div class="row">
+  <div class="form-row">
     <textarea name="review[content]" rows="8" cols="80">
 Fill in your review here!
     </textarea>
   </div>
   <br>
-  <div class="row">
+  <div class="form-row">
     <input type="submit" value="Submit">
   </div>
 
 </form>
 <br>
-<div class="row">
-    <h3><a href="/reviews">Click Here</a> to discard all changes and return to all reviews.</h3>
-</div>
+  <h3><a href="/reviews">Click Here</a> to discard all changes and return to all reviews.</h3>
